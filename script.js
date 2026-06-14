@@ -1,4 +1,6 @@
-// Navbar Scroll Effect
+// ========================================
+// NAVBAR SHADOW ON SCROLL
+// ========================================
 
 window.addEventListener("scroll", () => {
 
@@ -7,9 +9,11 @@ window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
 
         nav.style.boxShadow =
-            "0 10px 40px rgba(0,0,0,.3)";
+            "0 10px 40px rgba(0,0,0,.35)";
 
-    } else {
+    }
+
+    else {
 
         nav.style.boxShadow = "none";
 
@@ -19,17 +23,17 @@ window.addEventListener("scroll", () => {
 
 
 
-// Reveal Sections on Scroll
-
-const sections = document.querySelectorAll("section");
+// ========================================
+// SECTION REVEAL ANIMATION
+// ========================================
 
 const observer = new IntersectionObserver(
 
-(entries)=>{
+(entries) => {
 
-    entries.forEach(entry=>{
+    entries.forEach((entry) => {
 
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
 
             entry.target.classList.add("show");
 
@@ -40,16 +44,14 @@ const observer = new IntersectionObserver(
 },
 
 {
-
-threshold:.15
-
+    threshold:0.15
 }
 
 );
 
 
 
-sections.forEach(section=>{
+document.querySelectorAll("section").forEach((section)=>{
 
     section.classList.add("hidden");
 
@@ -60,53 +62,109 @@ sections.forEach(section=>{
 
 
 
-// Card Hover Glow
+// ========================================
+// CARD HOVER GLOW
+// ========================================
 
-const cards = document.querySelectorAll(".card");
+document.querySelectorAll(".card").forEach((card)=>{
 
-cards.forEach(card=>{
+    card.addEventListener("mouseenter",()=>{
 
-card.addEventListener("mouseenter",()=>{
+        card.style.boxShadow =
+            "0 20px 60px rgba(0,212,255,.15)";
 
-card.style.borderColor="#00d4ff";
-
-});
-
-card.addEventListener("mouseleave",()=>{
-
-card.style.borderColor="rgba(255,255,255,.05)";
-
-});
-
-});
+    });
 
 
+    card.addEventListener("mouseleave",()=>{
 
+        card.style.boxShadow =
+            "none";
 
-// Button Glow Animation
-
-const buttons = document.querySelectorAll(".primary-btn");
-
-buttons.forEach(button=>{
-
-button.addEventListener("mouseenter",()=>{
-
-button.style.boxShadow="0 0 40px rgba(0,212,255,.5)";
-
-});
-
-button.addEventListener("mouseleave",()=>{
-
-button.style.boxShadow="none";
-
-});
+    });
 
 });
 
 
 
 
-// Console Signature 🙂
+// ========================================
+// ADVISORY CARD HOVER GLOW
+// ========================================
+
+document.querySelectorAll(".advisory-card").forEach((card)=>{
+
+    card.addEventListener("mouseenter",()=>{
+
+        card.style.boxShadow =
+            "0 20px 60px rgba(139,92,246,.18)";
+
+    });
+
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.boxShadow =
+            "none";
+
+    });
+
+});
+
+
+
+
+// ========================================
+// BUTTON GLOW EFFECT
+// ========================================
+
+document.querySelectorAll(".primary-btn").forEach((button)=>{
+
+    button.addEventListener("mouseenter",()=>{
+
+        button.style.boxShadow =
+            "0 0 40px rgba(0,212,255,.4)";
+
+    });
+
+
+    button.addEventListener("mouseleave",()=>{
+
+        button.style.boxShadow =
+            "none";
+
+    });
+
+});
+
+
+
+
+// ========================================
+// PARALLAX PROFILE IMAGE
+// ========================================
+
+window.addEventListener("scroll",()=>{
+
+    const image = document.querySelector(".hero-right img");
+
+    if(image){
+
+        const offset = window.scrollY * 0.05;
+
+        image.style.transform =
+            `translateY(${offset}px)`;
+
+    }
+
+});
+
+
+
+
+// ========================================
+// CONSOLE SIGNATURE 😎
+// ========================================
 
 console.log(
 
